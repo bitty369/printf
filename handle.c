@@ -38,7 +38,7 @@ if (format != NULL)
 			}
 			else
 			{
-				exit(-1);
+				return(-1);
 			}
 		}
 		else
