@@ -12,8 +12,6 @@ int handle_print(va_list args, const char *format, convert_t fun[])
 {
 int i = 0, j, num_printed = 0, check;
 
-if (format != NULL)
-{
 	while (format[i])
 	{
 		if (format[i] == '%')
@@ -51,6 +49,5 @@ if (format != NULL)
 		}
 		i++;
 	}
-}
-return (num_printed);
+	return (num_printed);
 }

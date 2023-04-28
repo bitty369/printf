@@ -18,6 +18,8 @@ int _printf(const char *format, ...)
 	};
 	va_list list;
 
+	if (format == NULL)
+		return (-1);
 	va_start(list, format);
 
 	num_pr = handle_print(list, format, fun);
