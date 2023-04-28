@@ -10,13 +10,13 @@
 
 int handle_print(va_list args, const char *format, convert_t fun[])
 {
-int i = 0, j, num_printed = 0;
+int i = 0, j, num_printed = 0, check;
 
 if (format != NULL)
 {
 	while (format[i])
 	{
-		if (format[i] == '%' && format[i + 1] != ' ')
+		if (format[i] == '%')
 		{
 			if (format[i + 1] != '\0')
 			{
@@ -24,12 +24,15 @@ if (format != NULL)
 				{
 					if (format[i + 1] == fun[j].c[0])
 					{
-						num_printed += fun[j].f(args);
+						check += fun[j].f(args);
+						if (check == -1)
+							return (-1);
+						num_printed += check;
 						i++;
 						break;
 					}
 				}
-				if (fun[j].c == NULL)
+				if (fun[j].c == NULL && format[i + 1] != ' ')
 				{
 					_putchar(format[i]);
 					_putchar(format[i + 1]);
