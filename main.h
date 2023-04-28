@@ -5,6 +5,11 @@
 #include <stdlib.h>
 #include <stddef.h>
 
+/**
+ * struct convert - strctructure cases
+ * @c: character condition
+ * @f: functin excuted for case
+ */
 typedef struct convert
 {
 	char *c;
