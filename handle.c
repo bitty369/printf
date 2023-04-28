@@ -16,26 +16,23 @@ int i = 0, j, num_printed = 0, check;
 	{
 		if (format[i] == '%')
 		{
-			if (format[i + 1] != '\0')
+			for (j = 0; fun[j].c[0]; j++)
 			{
-				for (j = 0; fun[j].c[0]; j++)
+				if (format[i + 1] == fun[j].c[0])
 				{
-					if (format[i + 1] == fun[j].c[0])
-					{
-						check += fun[j].f(args);
-						if (check == -1)
-							return (-1);
-						num_printed += check;
-						i++;
-						break;
-					}
-				}
-				if (fun[j].c == NULL && format[i + 1] != ' ')
-				{
-					_putchar(format[i]);
-					_putchar(format[i + 1]);
+					check += fun[j].f(args);
+					if (check == -1)
+						return (-1);
+					num_printed += check;
 					i++;
+					break;
 				}
+			}
+			if (fun[j].c == NULL && format[i + 1] != ' ')
+			{
+				_putchar(format[i]);
+				_putchar(format[i + 1]);
+				i++;
 			}
 			else
 			{

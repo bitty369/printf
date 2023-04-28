@@ -23,17 +23,16 @@ int print_char(va_list arg)
 
 int print_string(va_list arg)
 {
-	int i = 0, len = 0;
+	int i;
 	char *str;
 
 	str = va_arg(arg, char *);
+	if (str == NULL)
+		str = "(null)";
+	for (i = 0; str[i] != '\0'; i++)
+		_putchar(str[i]);
 
-	while (str[i])
-	{
-		len += _putchar(str[i]);
-		i++;
-	}
-	return (len);
+	return (i);
 }
 
 /**
