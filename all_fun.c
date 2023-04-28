@@ -59,25 +59,23 @@ int print_percentage(__attribute__((unused)) va_list arg)
 int print_integer(va_list arg)
 {
 	int num, check = 1, length = 0;
+	unsigned int uni;
 
 	num = va_arg(arg, int);
 	if (num < 0)
 	{
 		length += _putchar('-');
-		num = num * -1;
+		uni = num * -1;
 	}
-	for (; num / check > 9; )
+	else
+		uni = num;
+	for (; uni/ check > 9; )
 		check *= 10;
 	for (; check != 0; )
 	{
-		length += _putchar('0' + num / check);
-		num %= check;
+		length += _putchar('0' + uni / check);
+		uni %= check;
 		check /= 10;
 	}
 	return (length);
 }
-
-
-
-
-
