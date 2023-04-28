@@ -47,3 +47,37 @@ int print_percentage(__attribute__((unused)) va_list arg)
 	_putchar('%');
 	return (1);
 }
+
+
+/**
+ * print_integer - print integer
+ * @arg: argument
+ * Return: return lenght
+ */
+
+
+int print_integer(va_list arg)
+{
+	int num, check = 1, length = 0;
+
+	num = va_arg(arg, int);
+	if (num < 0)
+	{
+		length += _putchar('-');
+		num = num * -1;
+	}
+	for (; num / check > 9; )
+		check *= 10;
+	for (; check != 0; )
+	{
+		length += _putchar('0' + num / check);
+		num %= check;
+		check /= 10;
+	}
+	return (length);
+}
+
+
+
+
+

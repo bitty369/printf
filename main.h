@@ -22,5 +22,6 @@ int handle_print(va_list args, const char *format, convert_t fun[]);
 int print_char(va_list arg);
 int print_string(va_list arg);
 int print_percentage(__attribute__((unused)) va_list arg);
+int print_integer(va_list arg);
 
 #endif
